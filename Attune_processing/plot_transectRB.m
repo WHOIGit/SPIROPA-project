@@ -2,8 +2,9 @@
 load D:\SPIROPA\20190511_RB1904\Attune\Summary\Attune_uw_match
 
 good = find(Attune_uw_match.QC_flowrate_std<2 & Attune_uw_match.QC_flowrate_median<1.5); whos good
-trnum = 7;
+trnum = 1;
 T1=find(Attune_uw_match.transect(good)==trnum);
+Attune_uw_match.lat = Attune_uw_match.lat_tsg;
 
 if 1
 figure, clf
@@ -42,6 +43,8 @@ title(['Transect ' num2str(trnum)])
 %pg/mL*1e-6 = ug/ml
 %ug/mL*1e3 = ug/L
 %pg/mL*1e-3 = ug/L
+end
+return
 
 T1all=find(Attune_uw_match.transect==trnum);
 figure(2), clf
