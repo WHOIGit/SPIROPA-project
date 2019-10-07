@@ -1,0 +1,1 @@
+filetype2exclude = {'FCB_bead_check' 'Cultures' 'SPIROPA_TN368_05Jul2019a' 'SPIROPA_TN368_05Jul2019b' 'SPIROPA_TN368_05Jul2019c' 'SPIROPA_TN368_05Jul2019d'};
