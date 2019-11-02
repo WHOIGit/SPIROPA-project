@@ -6,7 +6,8 @@
 %to handle highly non-standard column labels, create and save a table data
 %type for easier handling in MATLAB
 
-file2load = 'C:\work\SPIROPA\ar29_bottle_data_Apr_2019.mat';
+%file2load = 'C:\work\SPIROPA\ar29_bottle_data_Apr_2019.mat';
+file2load = 'C:\work\SPIROPA\RB1904\rb1904_bottle_data_Jul_2019.mat';
 if ~exist(file2load,'file')
     [FileName,PathName] = uigetfile('*.mat','Select BTL mat file');
     file2load = fullfilename(PathName, FileName);
