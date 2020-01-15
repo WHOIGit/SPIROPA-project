@@ -25,9 +25,11 @@ end
 uw_match = struct2table(uw);
 uw_match = uw_match(match_ind,:);
 
+AR29_TransectSegments_startingtime
+
 %AR29_TransectSegments_startingtime %get tstime from Gordon's summary of transect start times
 %run('C:\work\SPIROPA\RB1904\rb1904_transect_startime')
-run('\\sosiknas1\Lab_data\SPIROPA\20190705_TN368\scripts\tn368_transect_startime')
+%run('\\sosiknas1\Lab_data\SPIROPA\20180503_RB1904\Gordon_scriptsRB1904\rb1904_transect_startime')
 
 trnum = 1:length(tstime);
 uw_match.transect = floor(interp1(tstime,trnum, datenum(AttuneTable.StartDate)));
