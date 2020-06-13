@@ -7,7 +7,11 @@
 %type for easier handling in MATLAB
 
 %file2load = 'C:\work\SPIROPA\ar29_bottle_data_Apr_2019.mat';
-file2load = 'C:\work\SPIROPA\RB1904\rb1904_bottle_data_Jul_2019.mat';
+%file2load = 'C:\work\SPIROPA\RB1904\rb1904_bottle_data_Jul_2019.mat';
+%file2load = '\\sosiknas1\Lab_data\SPIROPA\20180414_AR29\fromOlga\ar29_bottle_data_Apr_2019.mat';
+file2load = '\\sosiknas1\Lab_data\SPIROPA\20180503_RB1904\fromOlga\rb1904_bottle_data_Apr_2020.mat';
+file2load = '\\sosiknas1\Lab_data\SPIROPA\20190705_TN368\fromOlga\tn368_bottle_data_Apr_2020.mat';
+
 if ~exist(file2load,'file')
     [FileName,PathName] = uigetfile('*.mat','Select BTL mat file');
     file2load = fullfilename(PathName, FileName);
@@ -48,13 +52,17 @@ c = regexprep(c, '/', '_per_'); %special replacement
 c = regexprep(c, '%', 'percent'); %special replacement
 c = regexprep(c, '>', '_gt'); %special replacement
 c = regexprep(c, '-', '_neg_'); %special replacement
+c = regexprep(c, 'é', 'Ac'); %special replacement
 c = strrep(c, '^', 'sup');
+
 
 %c = matlab.lang.makeValidName(c);
 c = matlab.lang.makeUniqueStrings(c);
 %%
 
 BTL = array2table(temp.data, 'VariableNames',c);
+%Olga's longitudes are missing the negative sign
+BTL.Longitude_decimalDeg = -1*BTL.Longitude_decimalDeg;
 
 clear ii s t f n
 
