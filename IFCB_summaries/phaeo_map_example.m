@@ -1,13 +1,14 @@
-plot_planview('AR29')
-plot_planview('AR28A')
-plot_planview('AR28B')
+mypath = '\\sosiknas1\IFCB_products\SPIROPA\summary\';
 
-plot_timeseries('AR29')
-plot_timeseries('AR28A')
-plot_timeseries('AR28B')
+plot_planview('AR29', mypath)
+plot_planview('AR28A', mypath)
+plot_planview('AR28B', mypath)
 
-function plot_planview(cruisestr_in)
-    mypath = '\\sosiknas1\IFCB_products\SPIROPA\summary\';
+plot_timeseries('AR29', mypath)
+plot_timeseries('AR28A', mypath)
+plot_timeseries('AR28B', mypath)
+
+function plot_planview(cruisestr_in, mypath)
     load(fullfile(mypath, ['phaeo_colony_' cruisestr_in]));
     figure, set(gcf, 'position', [290 75 450 320])
     scatter(meta_data.longitude, meta_data.latitude, 20, Phaeocystis_colony_CNN_predicted_concentration_per_ml, 'filled')
@@ -18,7 +19,7 @@ function plot_planview(cruisestr_in)
     colorbar
 end
 
-function plot_timeseries(cruisestr_in)
+function plot_timeseries(cruisestr_in, mypath)
     mypath = '\\sosiknas1\IFCB_products\SPIROPA\summary\';
     load(fullfile(mypath, ['phaeo_colony_' cruisestr_in]));
     figure, set(gcf, 'position', [290 75 800 320])
