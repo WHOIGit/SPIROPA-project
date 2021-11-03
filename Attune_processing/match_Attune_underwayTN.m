@@ -5,7 +5,7 @@
 %
 %Heidi M. Sosik, Woods Hole Oceanographic Insitution, Jan 2019
 
-summarypath = '\\sosiknas1\Lab_data\Attune\cruise_data\20190705_TN368\Summary\';
+summarypath = '\\sosiknas1\Lab_data\Attune\cruise_data\20190705_TN368\bead_calibrated\';
 load([summarypath 'AttuneTable'])
 t = strncmpi(AttuneTable.Filename,'SPIROPA_TN368_Grazer', 20);
 AttuneTable(find(t),:) = [];
@@ -13,20 +13,23 @@ t = strncmpi(AttuneTable.Filename,'FCB', 3);
 AttuneTable(find(t),:) = [];
 
 %uw = load('C:\work\SPIROPA\RB1904\UW\tsg_with_gps');
-uw = load('\\sosiknas1\Lab_data\SPIROPA\20190705_TN368\gps\tsg_with_gps');
+%uw = load('\\sosiknas1\Lab_data\SPIROPA\20190705_TN368\gps\tsg_with_gps');
+%uw variable in this file:
+load('\\sosiknas1\Lab_data\SPIROPA\20190705_TN368\compiled_underway\tn368_uw_compiled.mat')
 
 disp('matching with TSG')
 tdiff = NaN(size(AttuneTable,1),1);
 match_ind = tdiff;
 for ii = 1:length(tdiff)
-    [tdiff(ii), match_ind(ii)] = min(abs(datenum(AttuneTable.StartDate(ii)-uw.date_tsg)));
+    [tdiff(ii), match_ind(ii)] = min(abs(datenum(AttuneTable.StartDate(ii)-uw.mdate_fullres)));
 end
 
-uw_match = struct2table(uw);
+%uw_match = struct2table(uw);
+uw_match = uw;
 uw_match = uw_match(match_ind,:);
 
-AR29_TransectSegments_startingtime
-
+%AR29_TransectSegments_startingtime
+run("\\sosiknas1\Lab_data\SPIROPA\20190705_TN368\scripts\tn368_transect_startime.m")
 %AR29_TransectSegments_startingtime %get tstime from Gordon's summary of transect start times
 %run('C:\work\SPIROPA\RB1904\rb1904_transect_startime')
 %run('\\sosiknas1\Lab_data\SPIROPA\20180503_RB1904\Gordon_scriptsRB1904\rb1904_transect_startime')
@@ -59,7 +62,7 @@ uw_match = struct2table(uw);
 uw_match = uw_match(match_ind,:);
 Attune_uw_match = [Attune_uw_match uw_match];
 
-good = find(AttuneTable.QC_flowrate_std<2 & AttuneTable.QC_flowrate_median<1.5); whos good
-
-save([summarypath 'Attune_uw_match'], 'Attune_uw_match', 'good')
+%good = find(AttuneTable.QC_flowrate_std<2 & AttuneTable.QC_flowrate_median<1.5); whos good
+%save([summarypath 'Attune_uw_match'], 'Attune_uw_match', 'good')
+save([summarypath 'Attune_uw_match'], 'Attune_uw_match')
 disp(['results saved: ' [summarypath 'Attune_uw_match']])
