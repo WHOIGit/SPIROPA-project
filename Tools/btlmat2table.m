@@ -9,9 +9,10 @@
 %file2load = 'C:\work\SPIROPA\ar29_bottle_data_Apr_2019.mat';
 %file2load = 'C:\work\SPIROPA\RB1904\rb1904_bottle_data_Jul_2019.mat';
 %file2load = '\\sosiknas1\Lab_data\SPIROPA\20180414_AR29\fromOlga\ar29_bottle_data_Apr_2019.mat';
-file2load = '\\sosiknas1\Lab_data\SPIROPA\20180503_RB1904\fromOlga\rb1904_bottle_data_Apr_2020.mat';
-file2load = '\\sosiknas1\Lab_data\SPIROPA\20190705_TN368\fromOlga\tn368_bottle_data_Apr_2020.mat';
-
+%file2load = '\\sosiknas1\Lab_data\SPIROPA\20180503_RB1904\fromOlga\rb1904_bottle_data_Apr_2020.mat';
+%file2load = '\\sosiknas1\Lab_data\SPIROPA\20190705_TN368\fromOlga\tn368_bottle_data_Apr_2020.mat';
+file2load = 'C:\work\SPIROPA\TN368\tn368_bottle_data_Dec_2021.mat';
+CTDlist = readtable("C:\work\SPIROPA\TN368\tn368_ctd_list.txt");
 if ~exist(file2load,'file')
     [FileName,PathName] = uigetfile('*.mat','Select BTL mat file');
     file2load = fullfilename(PathName, FileName);
@@ -63,6 +64,12 @@ c = matlab.lang.makeUniqueStrings(c);
 BTL = array2table(temp.data, 'VariableNames',c);
 %Olga's longitudes are missing the negative sign
 BTL.Longitude_decimalDeg = -1*BTL.Longitude_decimalDeg;
+
+%fix messed up times in Olga's BTL files
+[ii,ia] = ismember(BTL.Cast, CTDlist.Var1);
+BTL.hour = CTDlist.Var5(ia); BTL.minute = CTDlist.Var6(ia); BTL.second = CTDlist.Var7(ia);
+%
+BTL.datetime = datetime(BTL.Year, BTL.Month, BTL.Day, BTL.hour, BTL.minute, BTL.second);
 
 clear ii s t f n
 
