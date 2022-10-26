@@ -3,6 +3,7 @@
 % The transect number is consistent with the old version of the transect list
 % Created by Gordon Zhang on Dec 1, 2018
 % Corrected the start time for Transects 15b, 16d, 16e, 18c by Gordon Zhang on Jan 20, 2019
+% updated by Gordon 10/25/2022 to split out the east-west segments of 'Transect 25'
 
 tstime(1)   = datenum([2018 04 17 13 15 04]); % Transect 1,    Offshore CTD transect, Cast 1-14
 tstime(2)   = datenum([2018 04 18 03 10 04]); % Transect 2,    Onshore EK80 transect
@@ -43,16 +44,22 @@ tstime(36) = datenum([2018 04 25 15 35 04]); % Transect 21,   Onshore CTD transe
 tstime(37) = datenum([2018 04 26 10 35 04]); % Transect 22,   Offshore transect with no VPR (due to fog) and with CTD Casts 130-132 in the end
 tstime(38) = datenum([2018 04 26 19 08 04]); % Transect 23,   Onshore VPR transect (towed VPR-6)
 tstime(39) = datenum([2018 04 27 00 15 04]); % Transect 24,   Offshore CTD transect, Cast 133-144
-tstime(40) = datenum([2018 04 27 11 35 34]); % Transect 25,   Onshore CTD transect, CTD Cast 144-162 (A1)
-tstime(41) = datenum([2018 04 28 07 48 00]); % Transect 26a, Short offshore transit, end with Cast 164 (A2)
-tstime(42) = datenum([2018 04 28 10 30 15]); % Transect 26b, Eastward VPR transit toward Nantucket Shoal to hunt Phaeocystis (towed VPR-7)
-tstime(43) = datenum([2018 04 28 15 09 36]); % Transect 26c, Short westward VPR return transit 
-tstime(44) = datenum([2018 04 28 16 12 06]); % Transect 26d, Resumed westward VPR transit 
-tstime(45) = datenum([2018 04 28 18 04 36]); % Transect 26e, Northward VPR transit 
-tstime(46) = datenum([2018 04 28 18 57 06]); % Transect 26f,  Southward VPR transit including CTD Cast 165-166 (P1) and ending at Cast 167 (P2)
-tstime(47) = datenum([2018 04 28 20 36 42]); % Transect 26g, Northwestward VPR transit 
-tstime(48) = datenum([2018 04 28 21 45 26]); % Transect 26h, Southwestward VPR transit 
-tstime(49) = datenum([2018 04 28 23 58 46]); % Transect 26i,  Short northeastward VPR transit ends with CTD Cast 168 (P4)
-tstime(50) = datenum([2018 04 29 01 01 15]); % Transect 26j,  Short southwestward VPR return transit 
-tstime(51) = datenum([2018 04 29 02 06 04]); % Transect 27,   Offshore CTD Transect, Cast 169 (A2) - Cast 175 (A8)
-tstime(52) = datenum([2018 04 29 06 30 04]); % Transect 27,   Start the final transit back to Woods Hole
+tstime(40) = datenum([2018 04 27 11 35 34]); % Transect 25a,   Onshore CTD transect, starting with CTD Cast 144
+tstime(41) = datenum([2018 04 27 23 37 05]); % Transect 25b,   Eastward transect (EIMS?) away from the main transect
+tstime(42) = datenum([2018 04 28 01 03 45]); % Transect 25c,   Westward transect across the main transect
+tstime(43) = datenum([2018 04 28 03 08 46]); % Transect 25d,   Eastward transect return to the main transect
+tstime(44) = datenum([2018 04 28 04 15 26]); % Transect 25e,   Resumed the northward transect to CTD Cast 162 at A1
+tstime(45) = datenum([2018 04 28 07 48 00]); % Transect 26a, Short offshore transit, end with Cast 164 (A2)
+tstime(46) = datenum([2018 04 28 10 30 15]); % Transect 26b, Eastward VPR transit toward Nantucket Shoal to hunt Phaeocystis (towed VPR-7)
+tstime(47) = datenum([2018 04 28 15 09 36]); % Transect 26c, Short westward VPR return transit 
+tstime(48) = datenum([2018 04 28 16 12 06]); % Transect 26d, Resumed westward VPR transit 
+tstime(49) = datenum([2018 04 28 18 04 36]); % Transect 26e, Northward VPR transit 
+tstime(50) = datenum([2018 04 28 18 57 06]); % Transect 26f,  Southward VPR transit including CTD Cast 165-166 (P1) and ending at Cast 167 (P2)
+tstime(51) = datenum([2018 04 28 20 36 42]); % Transect 26g, Northwestward VPR transit 
+tstime(52) = datenum([2018 04 28 21 45 26]); % Transect 26h, Southwestward VPR transit 
+tstime(53) = datenum([2018 04 28 23 58 46]); % Transect 26i,  Short northeastward VPR transit ends with CTD Cast 168 (P4)
+tstime(54) = datenum([2018 04 29 01 01 15]); % Transect 26j,  Short southwestward VPR return transit 
+tstime(55) = datenum([2018 04 29 02 06 04]); % Transect 27,   Offshore CTD Transect, Cast 169 (A2) - Cast 175 (A8)
+tstime(56) = datenum([2018 04 29 06 30 04]); % Transect 27,   Start the final transit back to Woods Hole
+
+
