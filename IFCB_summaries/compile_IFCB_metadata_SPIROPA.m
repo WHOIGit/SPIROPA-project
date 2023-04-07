@@ -25,7 +25,8 @@ switch cruise
         %ToTag_xlsFile = '\\sosiknas1\IFCB_data\SPIROPA\to_tag\SPIROPA_TN368_to_tag_newdashboard_USEME.xls';
         ToTag_xlsFile = '\\sosiknas1\IFCB_data\SPIROPA\to_tag\SPIROPA_TN368_to_tag_newdashboard_USEME.xls';
         load('\\sosiknas1\Lab_data\SPIROPA\20190705_TN368\compiled_underway\tn368_uw_compiled')
-        bottle_data = load('\\sosiknas1\Lab_data\SPIROPA\20190705_TN368\fromOlga\tn368_bottle_data_Apr_2020_table.mat');
+        %bottle_data = load('\\sosiknas1\Lab_data\SPIROPA\20190705_TN368\fromOlga\tn368_bottle_data_Apr_2020_table.mat');
+        bottle_data = load('\\sosiknas1\Lab_data\SPIROPA\20190705_TN368\fromOlga\tn368_bottle_data_Jul_2022_table.mat');
         temp = importdata('\\sosiknas1\Lab_data\SPIROPA\20190705_TN368\fromOlga\tn368_niskin_pressure_depth.txt');    
         bottle_depth = temp.data; bottle_depth(:,4) = []; clear temp
 end 

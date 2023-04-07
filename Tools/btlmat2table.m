@@ -11,7 +11,7 @@
 %file2load = '\\sosiknas1\Lab_data\SPIROPA\20180414_AR29\fromOlga\ar29_bottle_data_Apr_2019.mat';
 %file2load = '\\sosiknas1\Lab_data\SPIROPA\20180503_RB1904\fromOlga\rb1904_bottle_data_Apr_2020.mat';
 %file2load = '\\sosiknas1\Lab_data\SPIROPA\20190705_TN368\fromOlga\tn368_bottle_data_Apr_2020.mat';
-file2load = 'C:\work\SPIROPA\TN368\tn368_bottle_data_Dec_2021.mat';
+file2load = '\\sosiknas1\Lab_data\SPIROPA\20190705_TN368\fromOlga\tn368_bottle_data_Jul_2022.mat';
 CTDlist = readtable("C:\work\SPIROPA\TN368\tn368_ctd_list.txt");
 if ~exist(file2load,'file')
     [FileName,PathName] = uigetfile('*.mat','Select BTL mat file');
